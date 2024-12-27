@@ -15,15 +15,17 @@
         <div class="form-container">
             <h1>LOGIN</h1>
             
-            <form class="login-form">
+         
+            <form method="POST" action="{% url 'login' %}" class="login-form">
+                {% csrf_token %}
                 <div class="input-group"> 
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" name="username" placeholder="Username" required>
                 </div>
 
                 <div class="input-group">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Password" required>
                 </div>
 
                 <div class="form-options">
@@ -37,8 +39,8 @@
                 <button type="submit" class="login-button">Login</button>
 
                 <p class="register-text">
-                    Don't have account? 
-                    <a href="register.html" class="register-link">Register</a>
+                    Don't have an account? 
+                    <a href="{% url 'register' %}" class="register-link">Register</a>
                 </p>
             </form>
         </div>

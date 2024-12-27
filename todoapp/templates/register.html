@@ -15,32 +15,30 @@
         <div class="form-container">
             <h1>REGISTER</h1>
             
-            <form class="register-form">
-                <div class="input-group">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="First Name" required>
-                </div>
+ 
+            <form class="register-form" method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
 
                 <div class="input-group">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Last Name" required>
-                </div>
-
-                <div class="input-group">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" name="username" placeholder="Username" required>
                 </div>
 
                 <div class="input-group">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" name="password1" placeholder="Password" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="password2" placeholder="Confirm Password" required>
                 </div>
 
                 <button type="submit" class="register-button">Register</button>
 
                 <p class="login-text">
                     Already have an account? 
-                    <a href="login.html" class="login-link">Login</a>
+                    <a href="{% url 'login' %}" class="login-link">Login</a>
                 </p>
             </form>
         </div>
