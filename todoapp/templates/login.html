@@ -15,7 +15,7 @@
         <div class="form-container">
             <h1>LOGIN</h1>
             
-         
+            <!-- Form updated to use POST method and csrf_token -->
             <form method="POST" action="{% url 'login' %}" class="login-form">
                 {% csrf_token %}
                 <div class="input-group"> 
@@ -33,7 +33,7 @@
                         <input type="checkbox">
                         <span>Remember Me</span>
                     </label>
-                    <a href="changepass.html" class="forgot-password">Forgot password?</a>
+                    <a href="{% url 'forgot_password' %}" class="forgot-password">Forgot password?</a>
                 </div>
 
                 <button type="submit" class="login-button">Login</button>
